@@ -1,0 +1,10 @@
+.admin-app-menu {
+  position: fixed;
+  bottom: 0;
+  color: #c2c2c2;
+  background-color: #393d49;
+  overflow-x: hidden;
+  top: 70px;
+  width: 200px;
+  z-index: 10;
+}

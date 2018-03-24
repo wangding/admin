@@ -1,0 +1,16 @@
+.admin-app-footer {
+  position: fixed;
+  left: 200px;
+  right: 0;
+  bottom: 0;
+  height: 36px;
+  z-index: 10;
+  background-color: #eee;
+  border-left: solid 2px #1aa094;
+}
+
+.admin-app-footer .copyright {
+  line-height: 36px;
+  text-align: center;
+  color: #666;
+}
