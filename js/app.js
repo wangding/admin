@@ -1,6 +1,6 @@
 $(function() {
   window.onhashchange = function() {
-    if(window.location.hash === '#/logout') window.location.href = 'login.html';
+    if(window.location.hash === '#/logout') $login.show({'container': '#admin-app'});
   };
 
   $header.show({'container': '#admin-app', 
