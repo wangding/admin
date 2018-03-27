@@ -1,18 +1,18 @@
 {
   "name": "admin",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "基于 layui 组件库的 SPA 后台管理应用",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wangding/web-ui.git"
+    "url": "git+https://github.com/wangding/admin.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wangding/web-ui/issues"
+    "url": "https://github.com/wangding/admin/issues"
   },
-  "homepage": "https://github.com/wangding/web-ui#readme",
+  "homepage": "https://github.com/wangding/admin#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
