@@ -1,5 +1,5 @@
-var $menu = function() {
-  var $menuDOM = (function(menuData) {
+$(function() {
+  var menuDOM = function(menuData) {
     var $menu = $(''
       + '<div class="admin-app-menu">'
         + '<ul class="menu"></ul>'
@@ -35,10 +35,13 @@ var $menu = function() {
     });
 
     return $menu;
-  })(app.menuData);    
+  };    
 
-  var $menuBar = $menuDOM.find('.menu-bar'),
-    $menuItem = $menuDOM.find('.menu-item'),
+
+  $('#admin-app').append(menuDOM(app.menuData));
+
+  var $menuBar = $('.menu-bar'),
+    $menuItem = $('.menu-item'),
     $currentMenuBar = null,
     $currentMenu = null;
 
@@ -91,11 +94,36 @@ var $menu = function() {
       $menuItem.selectMenu(true);
       $currentMenu = $menuItem;
     }
-  });
 
-  function show(cfg) {
-    $(cfg.container).append($menuDOM);
-  }
-  
-  return {show: show};
-}();
+  });
+});
+
+/*
+  <div class="admin-app-menu">
+    <ul class="menu">
+      <li>
+        <div class="menu-bar">
+          <i class="iconfont "></i>
+          <span>门店管理</span>
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+        <dl class="menu-items">
+          <dd class="menu-item">门店列表</dd>
+        </dl>
+      </li>
+      <li>
+        <div class="menu-bar">
+          <i class="iconfont icon-mendianguanli"></i>
+          <span>活动管理</span>
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+        <dl class="menu-items">
+          <dd class="menu-item">首次关注送券</dd>
+          <dd class="menu-item">微信商品券</dd>
+          <dd class="menu-item">微信立减券</dd>
+          <dd class="menu-item">微信折扣券</dd>
+        </dl>
+      </li>
+    </ul>
+  </div>
+*/
