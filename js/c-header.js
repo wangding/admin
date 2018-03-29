@@ -32,13 +32,13 @@ var $header = function() {
   });
 
   $accountMenu.click(function() {
-    window.location.hash = '#/logout';
+    location.hash = '#/logout';
   });
 
   function show(cfg) {
     $title.html(cfg.title);
     $logo.css('background-image', cfg.logo);
-    $(cfg.container).append($header);
+    $(app.config.appContainer).append($header);
   }
   
   return {show: show};
