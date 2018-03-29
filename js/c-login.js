@@ -15,9 +15,9 @@ var $login = function() {
 
   var $form = $loginDOM.find('form');
 
-  function show(cfg) {
-    $(cfg.container).html('');
-    $(cfg.container).append($loginDOM);
+  function show() {
+    $(app.config.appContainer).html('');
+    $(app.config.appContainer).append($loginDOM);
   }
 
   $form.submit(function(e) {

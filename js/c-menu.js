@@ -91,10 +91,12 @@ var $menu = function() {
       $menuItem.selectMenu(true);
       $currentMenu = $menuItem;
     }
+
+    window.location.hash = $menuItem.attr('data-href');
   });
 
-  function show(cfg) {
-    $(cfg.container).append($menuDOM);
+  function show() {
+    $(app.config.appContainer).append($menuDOM);
   }
   
   return {show: show};
