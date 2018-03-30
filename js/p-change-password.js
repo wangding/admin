@@ -32,16 +32,18 @@ var $changePasswordPanel = (function() {
     }
   }
 
-  $form.submit(function(e) {
+  function onSubmit(e) {
     e.preventDefault();
     if(validate()) {
       // 验证通过后，调用 API 接口修改密码
     }
-  });
+  }
   
   function show() {
     $(app.config.panelContainer).html('');
     $(app.config.panelContainer).append($changePwdDOM);
+
+    $form.submit(onSubmit);
   }
 
   return {show: show};

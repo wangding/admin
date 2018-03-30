@@ -18,12 +18,12 @@ var $login = function() {
   function show() {
     $(app.config.appContainer).html('');
     $(app.config.appContainer).append($loginDOM);
-  }
 
-  $form.submit(function(e) {
-    e.preventDefault();
-    window.location.href = window.location.origin;
-  });
+    $form.submit(function(e) {
+      e.preventDefault();
+      location.hash = '#/index';
+    });
+  }
   
   return {show: show};
 }();

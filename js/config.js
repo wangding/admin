@@ -168,8 +168,4 @@ app.menuData = [
     ]
   }
 ];
-/*
-app.router = {
-  ''
-};
-*/
+

@@ -42,7 +42,7 @@ var $menu = function() {
     $currentMenuBar = null,
     $currentMenu = null;
 
-  $menuBar.click(function(e) {
+  function onMenuBarClick(e) {
     var $menu = $(e.currentTarget),
       arrowStyle = {'up': 'icon-arrowup', 'down': 'icon-arrowdown'};
 
@@ -51,7 +51,6 @@ var $menu = function() {
 
       var cssClass = $arrow.hasClass(arrowStyle.up) ? arrowStyle.up : arrowStyle.down;
       $arrow.removeClass(cssClass);
-
       $arrow.addClass(style);
     };
 
@@ -70,9 +69,9 @@ var $menu = function() {
       $menu.next().css('display', 'block');
       $currentMenuBar = $menu;
     }
-  });
+  }
 
-  $menuItem.click(function(e) {
+  function onMenuItemClick(e) {
     var $menuItem = $(e.currentTarget);
     
     $menuItem.selectMenu = function(isSelected){
@@ -93,10 +92,13 @@ var $menu = function() {
     }
 
     window.location.hash = $menuItem.attr('data-href');
-  });
+  }
 
   function show() {
     $(app.config.appContainer).append($menuDOM);
+
+    $menuBar.click(onMenuBarClick);
+    $menuItem.click(onMenuItemClick);
   }
   
   return {show: show};

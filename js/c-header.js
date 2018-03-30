@@ -19,26 +19,31 @@ var $header = function() {
     $arrow = $header.find('.icon-arrowdown'),
     $logo = $header.find('.account .logo');
 
-  $account.mouseover(function() {
+  function onMouseOver() {
     $arrow.removeClass('icon-arrowdown');
     $arrow.addClass('icon-arrowup');
     $accountMenu.css('display', 'block');
-  });
+  }
 
-  $account.mouseout(function() {
+  function onMouseOut() {
     $arrow.removeClass('icon-arrowup');
     $arrow.addClass('icon-arrowdown');
     $accountMenu.css('display', 'none');
-  });
+  }
 
-  $accountMenu.click(function() {
+  function onClick() {
+    onMouseOut();
     location.hash = '#/logout';
-  });
+  }
 
   function show(cfg) {
     $title.html(cfg.title);
     $logo.css('background-image', cfg.logo);
     $(app.config.appContainer).append($header);
+
+    $account.mouseover(onMouseOver);
+    $account.mouseout(onMouseOut);
+    $accountMenu.click(onClick);
   }
   
   return {show: show};
