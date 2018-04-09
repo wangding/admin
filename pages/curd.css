@@ -1,0 +1,57 @@
+.curd-table-panel {
+  width: 100%;
+  padding: 30px 30px;
+  box-sizing: border-box;
+}
+
+.curd-table-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  border-color: grey;
+  margin-top: 15px;
+}
+
+.curd-table-panel table thead {
+  background-color: #f8f8f8;  
+}
+
+.curd-table-panel table tr:hover {
+  background-color: #f8f8f8;
+}
+
+.curd-table-panel table th {
+  font-size: 14px;
+  text-align: left;
+}
+
+.curd-table-panel table td, th {
+  border: 1px solid #e2e2e2;
+  line-height: 20px;
+  padding: 9px 15px;
+}
+
+.curd-table-panel input[type="button"] {
+  background: #009688;
+  color: white;
+  width: 70px;
+  height: 38px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.curd-table-panel input[type="button"]:hover {
+  background: #56A398;
+}
+
+.curd-table-panel input[value="删除"] {
+  background: #ff9800;
+  width: 70px;
+  height: 38px;
+  padding: 0;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.curd-table-panel input[value="删除"]:hover {
+  background: #feab32;
+}
