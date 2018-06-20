@@ -1,3 +1,5 @@
+/* global app: true */
+/* exported $storeListPanel */
 var $storeListPanel = (function() {
   function show() {
     $(app.config.panelContainer).html('');

@@ -1,3 +1,5 @@
+/* global app: true */
+/* exported $changePasswordPanel */
 var $changePasswordPanel = (function() {
   var $changePwdDOM = $(''
       + '<div class="change-password-panel">'
@@ -10,10 +12,10 @@ var $changePasswordPanel = (function() {
         + '</form>'
       + '</div>');
 
-  var $form = $changePwdDOM.find('form'),
-    $originPwd = $changePwdDOM.find('.origin-pwd'),
-    $newPwd = $changePwdDOM.find('.new-pwd'),
-    $newPwd2 = $changePwdDOM.find('.new-pwd2');
+  var $form      = $changePwdDOM.find('form'),
+      $originPwd = $changePwdDOM.find('.origin-pwd'),
+      $newPwd    = $changePwdDOM.find('.new-pwd'),
+      $newPwd2   = $changePwdDOM.find('.new-pwd2');
 
   /**
    * 验证密码数据是否合法

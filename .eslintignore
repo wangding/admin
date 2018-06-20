@@ -1,0 +1,8 @@
+node_modules
+LICENSE
+CNAME
+*.html
+*.css
+*.md
+*.json
+*.png

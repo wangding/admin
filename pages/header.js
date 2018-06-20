@@ -1,7 +1,7 @@
 $(function() {
-  var $account = $('.admin-app-header .account'),
-    $accountMenu = $('.admin-app-header .account-menu'),
-    $arrow = $('.admin-app-header .account .icon-arrowdown');
+  var $account     = $('.admin-app-header .account'),
+      $accountMenu = $('.admin-app-header .account-menu'),
+      $arrow       = $('.admin-app-header .account .icon-arrowdown');
   
   $account.mouseover(function() {
     $arrow.removeClass('icon-arrowdown');

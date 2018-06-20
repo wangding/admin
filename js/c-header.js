@@ -1,3 +1,5 @@
+/* global app: true */
+/* exported $header */
 var $header = function() {
   var $header = $(''
     + '<div class="admin-app-header">'
@@ -13,11 +15,11 @@ var $header = function() {
       + '</div>'
     + '</div>');
 
-  var $title = $header.find('.title h1'),
-    $account = $header.find('.account'),
-    $accountMenu = $header.find('.account-menu'),
-    $arrow = $header.find('.icon-arrowdown'),
-    $logo = $header.find('.account .logo');
+  var $title       = $header.find('.title h1'),
+      $account     = $header.find('.account'),
+      $accountMenu = $header.find('.account-menu'),
+      $arrow       = $header.find('.icon-arrowdown'),
+      $logo        = $header.find('.account .logo');
 
   function onMouseOver() {
     $arrow.removeClass('icon-arrowdown');

@@ -1,3 +1,5 @@
+/* global app: true */
+/* exported $login */
 var $login = function() {
   var $loginDOM = $(''
       + '<div class="admin-app-login">'

@@ -1,3 +1,5 @@
+/* global app: true */
+/* exported $menu */
 var $menu = function() {
   var $menuDOM = (function(menuData) {
     var $menu = $(''
@@ -37,14 +39,14 @@ var $menu = function() {
     return $menu;
   })(app.menuData);    
 
-  var $menuBar = $menuDOM.find('.menu-bar'),
-    $menuItem = $menuDOM.find('.menu-item'),
-    $currentMenuBar = null,
-    $currentMenu = null;
+  var $menuBar        = $menuDOM.find('.menu-bar'),
+      $menuItem       = $menuDOM.find('.menu-item'),
+      $currentMenuBar = null,
+      $currentMenu    = null;
 
   function onMenuBarClick(e) {
-    var $menu = $(e.currentTarget),
-      arrowStyle = {'up': 'icon-arrowup', 'down': 'icon-arrowdown'};
+    var $menu      = $(e.currentTarget),
+        arrowStyle = {'up': 'icon-arrowup', 'down': 'icon-arrowdown'};
 
     $menu.showArrow = function(style) {
       var $arrow = this.find('span+i');

@@ -1,3 +1,4 @@
+/* global app: true */
 $(function() {
   var menuDOM = function(menuData) {
     var $menu = $(''
@@ -40,14 +41,14 @@ $(function() {
 
   $('#admin-app').append(menuDOM(app.menuData));
 
-  var $menuBar = $('.menu-bar'),
-    $menuItem = $('.menu-item'),
-    $currentMenuBar = null,
-    $currentMenu = null;
+  var $menuBar        = $('.menu-bar'),
+      $menuItem       = $('.menu-item'),
+      $currentMenuBar = null,
+      $currentMenu    = null;
 
   $menuBar.click(function(e) {
-    var $menu = $(e.currentTarget),
-      arrowStyle = {'up': 'icon-arrowup', 'down': 'icon-arrowdown'};
+    var $menu      = $(e.currentTarget),
+        arrowStyle = {'up': 'icon-arrowup', 'down': 'icon-arrowdown'};
 
     $menu.showArrow = function(style) {
       var $arrow = this.find('span+i');

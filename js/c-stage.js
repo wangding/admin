@@ -1,3 +1,5 @@
+/* global app: true */
+/* exported $stage */
 var $stage = function() {
   function show() {
     $(app.config.appContainer).append($('<div class="admin-app-stage"></div>'));
@@ -26,8 +28,8 @@ var $stage = function() {
    */
   function load(router) {
     var panel = getPanel(router);
-     //console.log(panel);
-    eval(panel + ".show({'container': '.admin-app-stage'});");
+    //console.log(panel);
+    eval(panel + '.show({"container": ".admin-app-stage"});');
   }
 
   return {show: show, load: load};

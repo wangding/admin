@@ -1,3 +1,4 @@
+/* global app $login $header $menu $footer $stage: true */
 $(function() {
   window.onhashchange = function() {
     if(location.hash === '#/logout') {
