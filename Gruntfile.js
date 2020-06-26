@@ -13,6 +13,12 @@ module.exports = function (grunt) {
       },
       src: '*.html'
     },
+    eslint: {
+      options: {
+        configFile: '.eslintrc.json'
+      },
+      target: ['./js/*.js']
+    },
     htmlmin: {
       options: {
         collapseWhitespace: true,
@@ -61,6 +67,7 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-htmlhint');
+  grunt.loadNpmTasks('grunt-eslint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
@@ -69,6 +76,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-usemin');
 
-  grunt.registerTask('lint', ['htmlhint', 'csslint']);
+  grunt.registerTask('lint', ['htmlhint', 'csslint', 'eslint']);
   grunt.registerTask('build', ['copy:html', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin', 'htmlmin', 'clean:end']);
 };

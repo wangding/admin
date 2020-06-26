@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "基于 layui 组件库的 SPA 后台管理应用",
   "scripts": {
-    "test": "grunt lint && eslint --quiet *",
-    "build": "grunt build"
+    "test": "grunt lint"
   },
   "repository": {
     "type": "git",
@@ -17,15 +16,15 @@
   },
   "homepage": "https://github.com/wangding/admin#readme",
   "devDependencies": {
-    "eslint": "^4.19.1",
     "grunt": "^1.0.1",
-    "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-csslint": "^2.0.0",
     "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-csslint": "^2.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-htmlmin": "^2.4.0",
     "grunt-contrib-uglify": "^3.3.0",
+    "grunt-eslint": "^23.0.0",
     "grunt-htmlhint": "^0.9.13",
     "grunt-usemin": "^3.1.1"
   }
