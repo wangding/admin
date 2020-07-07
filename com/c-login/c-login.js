@@ -17,14 +17,18 @@ var $login = function() {
 
   var $form = $loginDOM.find('form');
 
-  function show() {
-    $(app.config.appContainer).html('');
-    $(app.config.appContainer).append($loginDOM);
+  function onSubmit(e) {
+    e.preventDefault();
+    location.hash = '#/index';
+  }
 
-    $form.submit(function(e) {
-      e.preventDefault();
-      location.hash = '#/index';
-    });
+  function show() {
+    var $container = $(app.config.appContainer);
+
+    $container.html('');
+    $container.append($loginDOM);
+
+    $form.submit(onSubmit);
   }
   
   return {show: show};

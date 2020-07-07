@@ -2,7 +2,9 @@
 /* exported $stage */
 var $stage = function() {
   function show() {
-    $(app.config.appContainer).append($('<div class="admin-app-stage"></div>'));
+    var $container = $(app.config.appContainer);
+    
+    $container.append($('<div class="admin-app-stage"></div>'));
   }
   
   /**
@@ -14,7 +16,7 @@ var $stage = function() {
   function getPanel(router) {
     var panel = router.replace(/-(.)/g, function(letter){
       return letter.toUpperCase();
-    }).replace(/#\//,'$')
+    }).replace(/#!\//,'$')
       .replace(/-/g,'');
 
     return panel + 'Panel';
@@ -29,7 +31,8 @@ var $stage = function() {
   function load(router) {
     var panel = getPanel(router);
     //console.log(panel);
-    eval(panel + '.show({"container": ".admin-app-stage"});');
+    //eval(panel + '.show({"container": ".admin-app-stage"});');
+    window[panel].show();
   }
 
   return {show: show, load: load};
