@@ -16,6 +16,15 @@ app.config = {
   headerTitle: '管理后台',
 };
 
+app.formateDateTime = function(d) {
+	let dt = new Date(d);
+	
+	let date = dt.toISOString().substr(0, 10),
+			time = dt.toTimeString().substr(0, 8);
+			
+	return date + ' ' + time;
+}
+
 /* menuData 是左侧菜单栏数据，
  *   菜单栏只支持二级菜单
  */
