@@ -14,6 +14,7 @@ app.config = {
   appContainer: '#admin-app',
   panelContainer: '.admin-app-stage',
   headerTitle: '管理后台',
+	apiURL: 'http://192.168.133.144:3000/api'
 };
 
 app.formateDateTime = function(d) {

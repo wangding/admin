@@ -3,19 +3,27 @@ $(function() {
   window.onhashchange = function() {
     if(location.hash === '#/logout') {
       $login.show();
-    } else if(location.hash === '#/index') {
+			localStorage.clear();
+			$login.show();
+			return;
+    }
+		
+		var token = localStorage.getItem('token');
+		if(location.hash === '#/index' && token !== null) {
       $(app.config.appContainer).html('');
-      $header.show({
-        'title': app.config.headerTitle,
-        'logo': app.config.headerLogo
-      });
+      $header.show({ 'title': app.config.headerTitle });
       $menu.show();
       $footer.show();
       $stage.show();
-    } else {
+			return;
+    }
+		
+		if(token !== null) {
       $stage.load(location.hash);
+			// 验证 hash 不存在，有待完善
+			return;
     }
   };
-
-  $login.show();
+	
+	$login.show();
 });

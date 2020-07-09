@@ -1,9 +1,9 @@
 /* global app, layui, layer: true */
 /* exported $authorPanel */
 var $authorPanel = (function() {
-  const apiURL = 'http://192.168.133.144:3000/api';
+	const apiURL = app.config.apiURL + '/authors/';
 	const $panelDOM = $(''
-		+ '<div class="margin-set">'
+		+ '<div class="wd-margin-set">'
 			 + '<form class="layui-form layui-form-pane" action="">'
 					 + '<div class="layui-form-item">'
 							 + '<div class="layui-inline">'
@@ -34,7 +34,7 @@ var $authorPanel = (function() {
 
 	const $addDlg = $(''
 		+ '<div class="layer-add">'
-				+ '<div class="layui-form margin-set">'
+				+ '<div class="layui-form wd-margin-set">'
 						+ '<div class="layui-form-item">'
 								+ '<label class="layui-form-label required">作者名：</label>'
 								+ '<div class="layui-input-block">'
@@ -50,7 +50,8 @@ var $authorPanel = (function() {
 	
 		layui.use(['form', 'table', 'layer'], function(){
 			var table = layui.table,
-					form  = layui.form;
+					form  = layui.form
+					layer = layui.layer;
 			
 			table.render({
 				elem: '#table-data'
@@ -62,7 +63,8 @@ var $authorPanel = (function() {
 						layEvent: 'LAYTABLE_TIPS',
 						icon: 'layui-icon-tips'
 				}]
-				,url: apiURL + '/author' //数据接口
+				,url: apiURL //数据接口
+				,headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
 				,page: true //开启分页
 				,cols: [[ //表头
 					{type: 'checkbox', width: 50}
@@ -82,7 +84,7 @@ var $authorPanel = (function() {
 					page: {
 						curr: 1
 					}
-					, url: apiURL + '/author/' + result.authorName
+					, url: apiURL + result.authorName
 				}, 'data');
 		
 				return false;
@@ -95,17 +97,21 @@ var $authorPanel = (function() {
 		
 				if(layEvent === 'book'){ // 查看该作者的所有漫画
 					// do something
-				} else if(layEvent === 'del'){ // 删除
-					var layer = layui.layer;
-					
-					layer.confirm('真的删除行么？', function(index) {
+				} else if(layEvent === 'del'){ // 删除	
+					layer.confirm('真的删除么？', function(index) {
 						obj.del(); // 删除对应行的 DOM 结构，并更新缓存
 						layer.close(index); 
-						fetch(apiURL + '/author/' + data.id, {method: 'DELETE'});
+						var token = localStorage.getItem('token');
+						fetch(apiURL + data.id, {
+							method: 'DELETE',
+							headers: { 'Authorization': `Bearer ${token}` }
+						}).then(async (res) => {
+							var rs = await res.json();
+							layer.msg(rs.msg);
+						});
 					});
 				} else if(layEvent === 'edit'){ // 编辑
-					var layer = layui.layer,
-							newName = '';
+					var newName = '';
 							
 					$('body').append($addDlg);
 					
@@ -122,29 +128,33 @@ var $authorPanel = (function() {
 						yes: function(index) { 			
 							if($authorName.val() === '') return;
 							newName = $authorName.val();
-							
-							fetch(apiURL + '/author/' + data.id, {
+							var token = localStorage.getItem('token');
+							fetch(apiURL + data.id, {
 								method: 'PUT', 
 								headers: {
-									'content-type': 'application/x-www-form-urlencoded'
+									'content-type': 'application/x-www-form-urlencoded',
+									'Authorization': `Bearer ${token}`
 								},
 								body: 'authorName=' + newName
-							});
+							}).then(async (res) => {
+								var rs = await res.json();
+								layer.msg(rs.msg);
+								
+								if(rs.code === 0) {
+									// 同步更新缓存对应的值
+									obj.update({
+										author_name: newName,
+										update_time: app.formateDateTime(Date.now())
+									});
+								}						
+							});	
 							
 							$authorName.val('');
 							$addDlg.remove(); 
-							layer.close(index);
-							
-							// 同步更新缓存对应的值
-							obj.update({
-								author_name: newName,
-								update_time: app.formateDateTime(Date.now())
-							});
+							layer.close(index);													
 						},
 						cancel: function() { $addDlg.remove(); }
-					});
-		
-		
+					});		
 				} else if(layEvent === 'LAYTABLE_TIPS'){
 					layer.alert('Hi，头部工具栏扩展的右侧图标。');
 				}
@@ -154,7 +164,6 @@ var $authorPanel = (function() {
 				var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
 		
 				if(layEvent === 'add') {  // 增加
-					var layer = layui.layer;
 					$('body').append($addDlg);
 					
 					layer.open({
@@ -169,12 +178,17 @@ var $authorPanel = (function() {
 							
 							if($authorName.val() === '') return;
 							
-							fetch(apiURL + '/author', {
+							var token = localStorage.getItem('token');
+							fetch(apiURL, {
 								method: 'POST', 
 								headers: {
-									'content-type': 'application/x-www-form-urlencoded'
+									'content-type': 'application/x-www-form-urlencoded',
+									'Authorization': `Bearer ${token}`
 								},
 								body: 'authorName=' + $authorName.val()
+							}).then(async (res) => {
+								var rs = await res.json();
+								layer.msg(rs.msg);
 							});
 							
 							$authorName.val('');
@@ -184,15 +198,23 @@ var $authorPanel = (function() {
 						cancel: function() { $addDlg.remove(); }
 					});
 				} else if(layEvent === 'delete') {  // 批量删除
-					var checkStatus = table.checkStatus('authorTable')
-						, data = checkStatus.data;
-					
-					if(data.length > 0) {
+					layer.confirm('真的删除么？', function(index) {
+						var checkStatus = table.checkStatus('authorTable'),
+							  data = checkStatus.data;
+						
+						if(data.length === 0) return;
+						
 						let ids = data.map((item) => { return item.id}).join(',');
-						fetch(apiURL + '/author/' + ids, {method: 'DELETE'}).then(() => {
-							table.reload('authorTable', {page: {curr: obj.config.page.curr}});						
+						var token = localStorage.getItem('token');
+						fetch(apiURL + ids, {
+							method: 'DELETE',
+							headers: {'Authorization': `Bearer ${token}`}
+						}).then(async (res) => {
+							table.reload('authorTable', {page: {curr: obj.config.page.curr}});	
+							var rs = await res.json();
+							layer.msg(rs.msg);
 						});
-					}
+					});	
 				}
 			});
 		});
