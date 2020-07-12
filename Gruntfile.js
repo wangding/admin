@@ -5,7 +5,7 @@ module.exports = function (grunt) {
       options: {
         csslintrc: '.csslintrc'
       },
-      src: 'css/*.css'
+      src: ['css/*.css', 'com/*/*.css']
     },
     htmlhint: {
       options: {
@@ -17,7 +17,7 @@ module.exports = function (grunt) {
       options: {
         configFile: '.eslintrc.json'
       },
-      target: ['./js/*.js']
+      target: ['./com/*/*.js', './js/*.js']
     },
     htmlmin: {
       options: {
@@ -37,11 +37,11 @@ module.exports = function (grunt) {
     },
     concat: {
       js: {
-        src: ['js/*.js'],
+        src: ['js/*.js', 'com/*/*.js'],
         dest: 'dist/js/bundle.js'
       },
       css: {
-        src: ['css/*.css'],
+        src: ['css/*.css', 'com/*/*.css'],
         dest: 'dist/css/bundle.css'
       }
     },
@@ -68,6 +68,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-htmlhint');
   grunt.loadNpmTasks('grunt-eslint');
+
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');

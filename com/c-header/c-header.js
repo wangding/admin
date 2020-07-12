@@ -35,7 +35,7 @@ var $header = function() {
 
   function onClick() {
     onMouseOut();
-    location.hash = '#/logout';
+    location.hash = '#/login';
   }
 
   function show(cfg) {

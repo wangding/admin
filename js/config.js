@@ -1,3 +1,4 @@
+/* global axios, Promise: true */
 var app = {};
 
 /*
@@ -14,17 +15,36 @@ app.config = {
   appContainer: '#admin-app',
   panelContainer: '.admin-app-stage',
   headerTitle: '管理后台',
-	apiURL: 'http://192.168.133.144:3000/api'
+  apiURL: 'http://192.168.133.144:3000/api'
 };
 
 app.formateDateTime = function(d) {
-	let dt = new Date(d);
-	
-	let date = dt.toISOString().substr(0, 10),
-			time = dt.toTimeString().substr(0, 8);
-			
-	return date + ' ' + time;
-}
+  let dt = new Date(d);
+
+  let date = dt.toISOString().substr(0, 10),
+      time = dt.toTimeString().substr(0, 8);
+
+  return date + ' ' + time;
+};
+
+app.axios = axios.create();
+
+app.axios.interceptors.request.use((config) => {
+  const token = sessionStorage.getItem('token');
+  if (token) config.headers.authorization = `Bearer ${token}`;
+  return config;
+}, (err) => {
+  return Promise.reject(err);
+});
+
+app.axios.interceptors.response.use((response) => {
+  if (response.data.code === 40001) {
+    location.hash = '#/login';
+  }
+  return response;
+}, (error) => {
+  return Promise.reject(error.response.status);
+});
 
 /* menuData 是左侧菜单栏数据，
  *   菜单栏只支持二级菜单
