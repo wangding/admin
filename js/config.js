@@ -59,6 +59,9 @@ app.menuData = [{
     title: '作者管理',
     url: '!/author'
   }, {
+    title: '分类管理',
+    url: '!/tag'
+  }, {
     title: '书籍管理',
     url: '!/book'
   }, {
@@ -74,21 +77,9 @@ app.menuData = [{
   items: [{
     title: '普通账户',
     url: '!/user'
-  },
-  {
+  }, {
     title: '管理员账户',
     url: '!/administrator'
-  }]
-}, {
-  title: '网站管理',
-  icon: 'icon-mendianguanli',
-  items: [{
-    title: '轮播管理',
-    url: '!/banner'
-  },
-  {
-    title: '分类管理',
-    url: '!/tag'
   }]
 }, {
   title: '社交管理',
@@ -106,9 +97,11 @@ app.menuData = [{
   items: [{
     title: '系统设置',
     url: '!/sys-conf'
-  },
-  {
+  }, {
     title: '分页设置',
     url: '!/page-conf'
+  }, {
+    title: '轮播管理',
+    url: '!/banner'
   }]
 }];

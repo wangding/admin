@@ -3,7 +3,7 @@
 var $authorPanel = (() => {
   const apiURL = app.config.apiURL + '/authors/';
   const $panelDOM = $(''
-    + '<div class="wd-margin-set">'
+    + '<div class="wd-search-block">'
        + '<form class="layui-form layui-form-pane" action="">'
            + '<div class="layui-form-item">'
                + '<div class="layui-inline">'
@@ -15,7 +15,7 @@ var $authorPanel = (() => {
                + '<div class="layui-inline">'
                    + '<button type="submit" class="layui-btn layui-btn-primary"  lay-submit lay-filter="data-search-btn"><i class="layui-icon"></i> 搜 索</button>'
                + '</div>'
-           + '</div>'
+            + '</div>'
        + '</form>'
     + '</div>'
     + ''
@@ -34,7 +34,7 @@ var $authorPanel = (() => {
 
   const $addDlg = $(''
     + '<div class="layer-add">'
-        + '<div class="layui-form wd-margin-set">'
+        + '<div class="layui-form wd-search-block">'
             + '<div class="layui-form-item">'
                 + '<label class="layui-form-label required">作者名：</label>'
                 + '<div class="layui-input-block">'

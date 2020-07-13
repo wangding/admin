@@ -3,7 +3,7 @@
 var $areaPanel = (() => {
   const apiURL = app.config.apiURL + '/areas/';
   const $panelDOM = $(''
-    + '<div class="wd-margin-set">'
+    + '<div class="wd-search-block">'
        + '<form class="layui-form layui-form-pane" action="">'
            + '<div class="layui-form-item">'
                + '<div class="layui-inline">'
@@ -33,7 +33,7 @@ var $areaPanel = (() => {
 
   const $addDlg = $(''
     + '<div class="layer-add">'
-        + '<div class="layui-form wd-margin-set">'
+        + '<div class="layui-form wd-search-block">'
             + '<div class="layui-form-item">'
                 + '<label class="layui-form-label required">区域名：</label>'
                 + '<div class="layui-input-block">'
