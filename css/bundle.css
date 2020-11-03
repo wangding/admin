@@ -1,0 +1,264 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+#admin-app {
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+}
+
+.wd-search-block {
+	margin: 15px 20px 0 0;
+}
+
+blockquote, 
+body, 
+button, 
+dd, 
+div, 
+dl, 
+dt, 
+form, 
+h1, h2, h3, h4, h5, h6, 
+input, 
+li, ol, 
+p, 
+pre, 
+td, 
+textarea, 
+th, 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.admin-app-footer {
+  position: fixed;
+  left: 200px;
+  right: 0;
+  bottom: 0;
+  height: 36px;
+  z-index: 10;
+  background-color: #eee;
+  border-left: solid 2px #1aa094;
+}
+
+.admin-app-footer .copyright {
+  line-height: 36px;
+  text-align: center;
+  color: #666;
+}
+
+.admin-app-header {
+  border-bottom: 5px solid #1aa094;
+  height: 65px;
+  color: #999;
+  z-index: 10;
+  background: white;
+}
+
+.admin-app-header .title {
+  width: 200px;
+  height: 70px;
+}
+
+.admin-app-header h1 {
+  text-align: center;
+  line-height: 70px;
+  color: black;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.admin-app-header .account {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  width: 100px;
+  z-index: 100;
+} 
+
+.admin-app-header .account .logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+}
+
+.admin-app-header .account span {
+  line-height: 70px;
+}
+
+.admin-app-header .account .arrow-down {
+  position: relative;
+  top: 15px;
+  left: 5px;
+  border-style: solid;
+  border-color: #c2c2c2 transparent transparent;
+  border-width: 6px;
+}
+
+.admin-app-header .account-menu {
+  height: 43px;
+  border: 1px solid #d2d2d2;
+  border-top: 5px solid black;
+  position: relative;
+  top: -5px;
+  display: none;
+}
+
+.admin-app-header .account-menu:hover {
+  background-color: #f2f2f2;
+  color: black;
+  cursor: pointer;
+}
+
+.admin-app-header .account-menu span {
+  line-height: 40px;
+}
+
+.admin-app-header .account-menu i {
+  margin-left: 10px;
+}
+
+.admin-app-login {
+  position: relative;
+  top: 200px;
+  width: 420px;
+  border: solid 1px #c2c2c2;
+  margin: 0 auto;
+  background: white;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.admin-app-login h1 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+.admin-app-login label {
+  height: 20px;
+  padding: 9px 15px 9px 0;
+}
+
+.admin-app-login input {
+  height: 36px;
+  width: 210px;
+  margin: 5px 0;
+  outline: none;
+  padding-left: 10px;
+  border: 1px solid #d2d2d2;
+}
+
+.admin-app-login input[type="submit"] {
+  background: #009688;
+  color: white;
+  width: 100px;
+  height: 38px;
+  padding: 0;
+}
+
+.admin-app-menu {
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  color: #c2c2c2;
+  background-color: #393d49;
+  overflow: visible;
+  width: 200px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.admin-app-menu .menu {
+  width: 200px;
+  overflow: visible;
+}
+
+.admin-app-menu .menu-bar {
+  width: 100%;
+  height: 45px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-left: 5px solid #393d49;
+}
+
+.admin-app-menu .menu-bar:hover {
+  color: white;
+  border-left: 5px solid #1aa094; 
+  background: #4e5465;
+}
+
+.admin-app-menu .menu-bar span {
+  line-height: 45px;
+  padding: 0 10px;
+  width: 100px;
+  display: inline-block;
+}
+
+.admin-app-menu .menu-bar span + i {
+  position: relative;
+  left: 15px;
+}
+
+.admin-app-menu .menu-items {
+  display: none;
+}
+
+.admin-app-menu .menu-items .menu-item {
+  height: 40px;
+  line-height: 40px;
+  padding-left: 50px;
+  background: #282e37;
+}
+
+
+.admin-app-menu .menu-items .menu-item:hover {
+  color: white;
+  background: #4e5465;
+}
+
+.admin-app-stage {
+  position: absolute;
+  left: 200px;
+  top: 70px;
+  bottom: 0;
+  right: 0;
+  border-left: solid 2px #1aa094;
+  box-sizing: border-box;
+  background: white;
+}
+
+/* nothing */
+
+/* nothing */
+
+/* nothing */
+
+
+/* nothing */
+
+/* nothing */
+
+
+
+/* nothing */
+
+
+/* nothing */
+
+
+/* nothing */
+
+
+/* nothing */
+
+
+/* nothing */
+
